@@ -15,11 +15,11 @@ body, html {
     display: flex;
     width: 900px;
     height: 600px;
-    background-color: #000000; 
+    background-color: #002b11; 
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
     overflow: hidden; 
-    border: 5px solid #000000; 
+    border: 5px solid #002b11; 
 }
 
 /* --- The Spine --- */
@@ -73,10 +73,10 @@ header {
 .right-header { text-align: left; margin-top: 35px; }
 
 h1 {
-    font-weight: 800;
+    font-weight: 900;
     font-size: 2rem;
     margin: 0;
-    color: #000000; 
+    color: #002b11; 
     letter-spacing: 2px;
 }
 
