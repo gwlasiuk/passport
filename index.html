@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resource Passport</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="book-container">
+        
+        <div class="page left-page">
+            <header>
+                <h1>PASSPORT</h1>
+                <h2>to Official Resources</h2>
+            </header>
+            
+            <div class="entries-container">
+                <div class="entry">
+                    <div class="stamp-area">
+                        <span class="stamp stamp-1">EXPLORED</span>
+                    </div>
+                    <div class="link-area">
+                        <a href="https://tripadvisor.docebosaas.com/pages/280/manager-basecamp" target="_blank" class="resource-link">Manager Basecamp</a>
+                        <p class="description">Resources for all managers and aspiring people leaders.</p>
+                    </div>
+                </div>
+
+                <div class="entry">
+                    <div class="stamp-area">
+                        <span class="stamp stamp-2">LEARNED</span>
+                    </div>
+                    <div class="link-area">
+                        <a href="https://tripadvisor.docebosaas.com/pages/292/managers-almanac" target="_blank" class="resource-link">Manager's Almanac</a>
+                        <p class="description">Comprehensive guide to leadership at Tripadvisor.</p>
+                    </div>
+                </div>
+
+                <div class="entry">
+                    <div class="stamp-area">
+                        <span class="stamp stamp-3">VISITED</span>
+                    </div>
+                    <div class="link-area">
+                        <a href="https://tripadvisor.docebosaas.com/pages/356/performance-hub" target="_blank" class="resource-link">Performance Hub</a>
+                        <p class="description">Trainings and resrouces related to performance and career development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="spine"></div>
+        
+        <div class="page right-page">
+            <header class="right-header">
+                <h2>Visas & Additional Stamps</h2>
+            </header>
+
+            <div class="entries-container">
+                <div class="entry">
+                    <div class="stamp-area">
+                        <span class="stamp stamp-4">COMPLETED</span>
+                    </div>
+                    <div class="link-area">
+                        <a href="https://tripadvisor.docebosaas.com/learn/catalog/view/166" target="_blank" class="resource-link">Nano Tips</a>
+                        <p class="description">Bite-sized courses on a variety of topics.</p>
+                    </div>
+                </div>
+
+                <div class="entry">
+                    <div class="stamp-area">
+                        <span class="stamp stamp-5">APPROVED</span>
+                    </div>
+                    <div class="link-area">
+                        <a href="https://tripadvisor.docebosaas.com/pages/338/ai-learning-hub" target="_blank" class="resource-link">AI Learning Hub</a>
+                        <p class="description">Training and courses on all things AI.</p>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="progress-section">
+                <div class="progress-text">Stamps Collected: <span id="stamp-count">0</span>/5</div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+
+        </div> 
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

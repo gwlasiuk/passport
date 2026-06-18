@@ -1,0 +1,229 @@
+/* --- Global Reset & Background --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: transparent; 
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Book Container --- */
+.book-container {
+    display: flex;
+    width: 900px;
+    height: 600px;
+    background-color: #000000; 
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
+    overflow: hidden; 
+    border: 5px solid #000000; 
+}
+
+/* --- The Spine --- */
+.spine {
+    width: 20px;
+    background: linear-gradient(90deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    position: relative;
+    z-index: 5;
+}
+
+/* --- Generic Page Styling (FAINT WAVY PATTERN) --- */
+.page {
+    flex: 1;
+    background-color: #fcfcfc; 
+    
+    /* Greatly reduced opacity to 0.04 for a very subtle watermark effect */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cpath d='M0 15 Q15 0 30 15 T60 15' fill='none' stroke='%23000000' stroke-width='0.75' stroke-opacity='0.04'/%3E%3Cpath d='M0 15 Q15 30 30 15 T60 15' fill='none' stroke='%23000000' stroke-width='0.75' stroke-opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 60px 30px;
+    
+    position: relative;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Inner shadow near the spine */
+.page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.left-page::after { right: 0; background: linear-gradient(90deg, transparent, rgba(0,0,0,0.08)); }
+.right-page::after { left: 0; background: linear-gradient(90deg, rgba(0,0,0,0.08), transparent); }
+
+.left-page { padding-right: 50px; }
+.right-page { padding-left: 50px; }
+
+/* --- Headers --- */
+header {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1); 
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.left-page header { text-align: center; }
+.right-header { text-align: left; margin-top: 35px; }
+
+h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 0;
+    color: #000000; 
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0;
+    color: #333; 
+    text-transform: uppercase;
+}
+
+/* --- Entries Container --- */
+.entries-container { flex-grow: 1; }
+
+.entry {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.stamp-area {
+    width: 120px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.link-area { flex: 1; }
+
+.resource-link {
+    font-weight: 700;
+    color: #444; 
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+    background: rgba(255, 255, 255, 0.6); 
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.resource-link:hover { color: #6780ff; }
+
+.description {
+    margin: 3px 0 0 0;
+    font-size: 0.85rem;
+    color: #777;
+    font-weight: 600; 
+    background: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* --- The Stamp & Animation --- */
+.stamp {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 3px solid;
+    padding: 5px 10px;
+    border-radius: 6px;
+    opacity: 0; 
+    transform: scale(2.5); 
+    pointer-events: none; 
+    transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28); 
+}
+
+/* Your Vibrant Multi-Color Palette */
+.stamp-1 { color: #ff4e51; border-color: #ff4e51; }
+.stamp-2 { color: #6780ff; border-color: #6780ff; }
+.stamp-3 { color: #a66aff; border-color: #a66aff; }
+.stamp-4 { color: #00c6e5; border-color: #00c6e5; }
+.stamp-5 { color: #fb5184; border-color: #fb5184; }
+
+.is-stamped .stamp {
+    opacity: 0.85; 
+    transform: scale(1) rotate(-10deg); 
+}
+
+.entry:nth-child(even).is-stamped .stamp { transform: scale(1) rotate(5deg); }
+.entry:nth-child(3).is-stamped .stamp { transform: scale(1) rotate(-15deg); }
+
+/* --- Progress Bar --- */
+.progress-section {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 2px dashed rgba(0,0,0,0.1);
+}
+
+.progress-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.08); 
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    /* Gradient using all 5 of your requested colors! */
+    background: linear-gradient(90deg, #ff4e51, #fb5184, #a66aff, #6780ff, #00c6e5);
+    background-size: 300% 100%; /* Stretches the gradient so it reveals as it fills */
+    transition: width 0.5s ease-out;
+}
+
+/* --- Final 'All Approved' Giant Stamp --- */
+.right-page::before {
+    content: "PASSPORT APPROVED";
+    position: absolute;
+    bottom: 110px; /* Floats it perfectly in the blank space above the progress bar */
+    right: 30px;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #ff4e51; 
+    border: 6px solid #ff4e51;
+    padding: 10px 20px;
+    border-radius: 12px;
+    pointer-events: none; /* Allows you to click links underneath it just in case */
+    z-index: 50;
+    text-align: center;
+    line-height: 1;
+    
+    /* Start hidden and massive */
+    opacity: 0;
+    transform: scale(3) rotate(0deg);
+    transition: all 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+/* The state triggered by JavaScript when 5/5 is reached */
+.right-page.all-approved::before {
+    opacity: 0.35; /* Very faded so it looks like background watermark ink */
+    transform: scale(1) rotate(-22deg); /* Slams down at a messy angle */
+}
